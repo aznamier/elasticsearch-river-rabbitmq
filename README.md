@@ -61,17 +61,19 @@ You can disable exchange or queue declaration by setting `exchange_declare` or `
 You can disable queue binding by setting `queue_bind` to `false` (`true` by default).
 
 You can also setup all queue parameters like e.g. deadletter exchange and routing key:
-```sh
-	......
-	     "nack_errors" : true,
-      "args" :  {
-        "x-dead-letter-exchange":"system.error",
-        "x-dead-letter-routing-key":"ES.rcv.error" 
-      }
-    
+```javascript
+	...
+    "rabbitmq" : {
+    	 ...
+	      "nack_errors" : true,
+	      "args" :  {
+	        "x-dead-letter-exchange":"system.error",
+	        "x-dead-letter-routing-key":"ES.rcv.error" 
+	      }
     },
     "index" : {
-    ......
+    	...
+    }
 ```
 
 Addresses(host-port pairs) also available. it is useful to taking advantage rabbitmq HA(active/active) without any rabbitmq load balancer.
